@@ -5,7 +5,7 @@
     margin: 0 auto;
 }
 body{
-    rgb(241, 242, 243);
+    /*background: rgb(241, 242, 243);*/
 }
 
 /*分类开始*/
@@ -75,7 +75,7 @@ body{
 }
 
 .catagroy .target .item:hover{
-    box-shadow:0 0 3px 3px rgba(0,0,0,0.3);
+    box-shadow:0 3px 3px 3px rgba(0,0,0,0.3);
 }
 .catagroy .target .item img{
     width: 100%;
@@ -102,68 +102,78 @@ body{
 /*左边的栏目完成*/
 
 
-/*.catagroy>.f_left li{*/
-    /*height: 40px;*/
-    /*padding-left: 10px;*/
-    /*line-height: 40px;*/
-    /*border-bottom: 1px solid #ccc;*/
-/*}*/
-/*.catagroy>.f_left dt h4{*/
-    /*font-size: 24px;*/
-/*}*/
+/*右边的栏目开始*/
 
-/*.catagroy .item{*/
-    /*width: 182px;*/
-    /*border: 1px solid #ccc;*/
-    /*margin: 10px 0 0 10px;*/
-    /*float: left;*/
-/*}*/
+.catagroy>.f_right li{
+    height: 59px;
+    border-bottom: 1px dashed #ccc;
+}
 
-/*.catagroy .item img{*/
-    /*width: 100%;*/
-    /*height: auto;*/
-/*}*/
-/*.catagroy .item p{*/
-    /*padding: 3px 10px;*/
-    /*font-size: 14px;*/
-/*}*/
+.catagroy>.f_right li:hover{
+    background: rgb(241, 242, 243);
+}
 
-/*.catagroy .item p:last-child{*/
-    /*font-size: 12px;*/
-    /*color: #666;*/
-/*}*/
-/*.catagroy .item p .mark{*/
-    /*color: gold;*/
-    /*font-size: 16px;*/
-    /*font-weight: 700;*/
-/*}*/
+.catagroy>.f_right li:last-child{
+    border-bottom: none;
+}
 
-/*!*catelogry右边开始*!*/
-/*.catagroy>.f_right{*/
-    /*width: 220px;*/
-    /*height: 100%;*/
-    /*border: 1px solid #ccc;*/
-    /*border-bottom: none;*/
-/*}*/
-/*.catagroy>.f_right dd{*/
-    /*height: 56px;*/
-    /*border-bottom: 1px solid #ccc;*/
-    /*line-height: 56px;*/
-/*}*/
-/*.catagroy>.f_right dd img{*/
-    /*width: 30px;*/
-    /*height: 40px;*/
-    /*float: left;*/
-    /*margin:8px 10px 0;*/
-/*}*/
-/*.catagroy>.f_right dt{*/
-    /*height: 40px;*/
-    /*padding-left: 10px;*/
-    /*line-height: 40px;*/
-    /*border-bottom: 1px solid #ccc;*/
-/*}*/
-/*.catagroy>.f_right dt h4{*/
-    /*font-size: 24px;*/
-/*}*/
+.catagroy>.f_right li>a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 
+.catagroy>.f_right li img{
+    width: 35px;
+    height: 50px;
+    float: left;
+    margin: 5px 10px;
+}
+
+.catagroy>.f_right li .title{
+    font-size:16px;
+    color: green;
+    vertical-align: bottom;
+}
+.catagroy>.f_right li .star{
+    font-style: italic;
+    font-size: 26px;
+    color: gold;
+}
+
+.star0{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -110px;
+}
+.star1{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -99px;
+}
+.star2{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -88px;
+}
+.star3{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -77px;
+}
+.star4{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -66px;
+}
+.star5{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -55px;
+}
+.star6{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -44px;
+}
+.star7{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -33px;
+}
+.star8{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -22px;
+}
+.star9{
+    background: url("../images/ic_rating_s.png") no-repeat 0 -11px;
+}
+.star10{
+    background: url("../images/ic_rating_s.png") no-repeat 0 0;
+}
+
+/*右边的栏目结束*/
 

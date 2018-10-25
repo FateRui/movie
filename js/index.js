@@ -1,5 +1,5 @@
 $(function () {
-    $(".catagroy .tabs").on("mouseenter","li",function () {
+    $(document).on("mouseenter",".catagroy .tabs li",function () {
         //获取当前li的索引
         var index =$(this).index();
         //首先将本li的背景颜色改变，然后去掉其他li的背景颜色
@@ -16,4 +16,6 @@ $(function () {
         //自己显示，其他的隐藏
         targetPage.show().siblings().hide();
     });
+
+    
 });
