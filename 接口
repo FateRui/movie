@@ -1,0 +1,16 @@
+http://api.douban.com/v2/movie/search?tag=喜剧
+http://api.douban.com/v2/movie/search?tag=剧情
+http://api.douban.com/v2/movie/search?tag=爱情
+
+http://api.douban.com/v2/movie/search?tag=动作
+http://api.douban.com/v2/movie/search?tag=战争
+http://api.douban.com/v2/movie/search?tag=犯罪
+
+http://api.douban.com/v2/movie/search?tag=动画
+http://api.douban.com/v2/movie/search?tag=冒险
+http://api.douban.com/v2/movie/search?tag=奇幻
+
+http://api.douban.com/v2/movie/search?tag=电影
+http://api.douban.com/v2/movie/search?tag=电视剧
+http://api.douban.com/v2/movie/search?tag=综艺
+

@@ -79,6 +79,7 @@ body{
 }
 .catagroy .target .item img{
     width: 100%;
+    display: block;
     height: 253px;
 }
 
@@ -141,6 +142,8 @@ body{
     color: gold;
 }
 
+
+/*点赞图标--由于不好看，已经废弃*/
 .star0{
     background: url("../images/ic_rating_s.png") no-repeat 0 -110px;
 }
