@@ -1,0 +1,169 @@
+.container{
+    width: 1200px;
+    max-width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+body{
+    rgb(241, 242, 243);
+}
+
+/*分类开始*/
+.catagroy{
+    margin-top: 20px;
+    background: #fff;
+    width: 100%;
+}
+
+/*分类左边开始*/
+.catagroy>.f_left{
+    width: 975px;
+    border: 1px solid #ccc;
+    height: 674px;
+}
+
+.catagroy>.f_right{
+    width: 210px;
+    border: 1px solid #ccc;
+    height: 674px;
+}
+
+.catagroy>.f_left .loggle,.catagroy>.f_right .loggle{
+    padding-left: 10px;
+    height: 39px;
+    border-bottom: 1px solid #ccc;
+    line-height: 39px;
+}
+
+.catagroy>.f_left .title,.catagroy>.f_right .title{
+    font-size: 22px;
+    color: #000;
+    float: left;
+}
+
+.divider{
+    width: 1px;
+    background: #ccc;
+    height: 22px;
+    margin: 9px 20px;
+    float: left;
+}
+
+.catagroy>.f_left .tabs{
+    float: left;
+    height: 20px;
+}
+
+.catagroy>.f_left .tabs li{
+    float: left;
+    font-size: 16px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.catagroy>.f_left .tabs .now{
+    background: #007aff;
+    color: #fff;
+}
+
+.catagroy .target .item{
+    float: left;
+    width: 181px;
+    height: 300px;
+    margin: 10px 0 0 10px;
+    border: 1px solid #ccc;
+}
+
+.catagroy .target .item:hover{
+    box-shadow:0 0 3px 3px rgba(0,0,0,0.3);
+}
+.catagroy .target .item img{
+    width: 100%;
+    height: 253px;
+}
+
+.catagroy .target .item .mark{
+    color: gold;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.catagroy .target .item p{
+    padding: 0 5px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #000;
+}
+.catagroy .target .item p:last-child{
+    font-size: 12px;
+    color: #666;
+}
+
+/*左边的栏目完成*/
+
+
+/*.catagroy>.f_left li{*/
+    /*height: 40px;*/
+    /*padding-left: 10px;*/
+    /*line-height: 40px;*/
+    /*border-bottom: 1px solid #ccc;*/
+/*}*/
+/*.catagroy>.f_left dt h4{*/
+    /*font-size: 24px;*/
+/*}*/
+
+/*.catagroy .item{*/
+    /*width: 182px;*/
+    /*border: 1px solid #ccc;*/
+    /*margin: 10px 0 0 10px;*/
+    /*float: left;*/
+/*}*/
+
+/*.catagroy .item img{*/
+    /*width: 100%;*/
+    /*height: auto;*/
+/*}*/
+/*.catagroy .item p{*/
+    /*padding: 3px 10px;*/
+    /*font-size: 14px;*/
+/*}*/
+
+/*.catagroy .item p:last-child{*/
+    /*font-size: 12px;*/
+    /*color: #666;*/
+/*}*/
+/*.catagroy .item p .mark{*/
+    /*color: gold;*/
+    /*font-size: 16px;*/
+    /*font-weight: 700;*/
+/*}*/
+
+/*!*catelogry右边开始*!*/
+/*.catagroy>.f_right{*/
+    /*width: 220px;*/
+    /*height: 100%;*/
+    /*border: 1px solid #ccc;*/
+    /*border-bottom: none;*/
+/*}*/
+/*.catagroy>.f_right dd{*/
+    /*height: 56px;*/
+    /*border-bottom: 1px solid #ccc;*/
+    /*line-height: 56px;*/
+/*}*/
+/*.catagroy>.f_right dd img{*/
+    /*width: 30px;*/
+    /*height: 40px;*/
+    /*float: left;*/
+    /*margin:8px 10px 0;*/
+/*}*/
+/*.catagroy>.f_right dt{*/
+    /*height: 40px;*/
+    /*padding-left: 10px;*/
+    /*line-height: 40px;*/
+    /*border-bottom: 1px solid #ccc;*/
+/*}*/
+/*.catagroy>.f_right dt h4{*/
+    /*font-size: 24px;*/
+/*}*/
+
+
