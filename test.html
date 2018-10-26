@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="assets/jquery/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container,.container img{
+            width: 100px;
+            height: 100px;
+            float: right;
+            margin-top: 10px;
+            background: #cccccc;
+        }
+
+        #floatImg{
+            position: fixed;
+            width: 100px;
+            height: 200px;
+            background: #ccc;
+            /*border: 1px solid #666;*/
+            padding:5px 5px;
+            left: 0;
+            top: 0;
+        }
+
+        #floatImg div{
+            display: block;
+            width: 100px;
+            height: 200px;
+            background: red;
+        }
+
+    </style>
+    <script>
+        $(function () {
+            $(document).on("mouseenter",".img",function () {
+                var thisX =$(this).position().left;
+                var thisY =$(this).position().top;
+                var targetImg= $("#floatImg");
+                var targetX =thisX-targetImg.width()-20;
+                var targetY =thisY-$(this).height()/2;
+               targetImg.show();
+               targetImg.css({left:targetX+"px",top:targetY+"px"});
+            }).on("mouseleave",".img",function () {
+                var targetImg= $("#floatImg");
+                targetImg.hide();
+            });
+        });
+        function addEle() {
+            document.createElement("div");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img class="img" ></img>
+        <img class="img" ></img>
+        <img class="img" ></img>
+    </div>
+    <div id="floatImg"style="display: none">
+        <div></div>
+    </div>
+</body>
+</html>

@@ -19,7 +19,8 @@
     <script>NProgress.start();</script>
 
     <div class="container">
-        <!--banner-->
+        <!--轮播图-->
+
         <!--热门-->
         <div class="catagroy clearfix" id="hotVideo">
            <div class="clearfix f_left">
@@ -162,6 +163,11 @@
         <p>本站所有资源均来自有豆瓣，如有侵权，请联系站长: <span>zhou1050253145@163.com</span></p>
         <p>源码已放至github,感兴趣的可访问: <a href="https://github.com/FateRui/movie">https://github.com/FateRui/movie</a></p>
     </div>
+
+    <!--这个是图片放大-->
+    <div id="float_img">
+        <img src="images/p2533822396.jpg">
+    </div>
     <!--导入jq插件-->
     <script src="assets/jquery/jquery.min.js"></script>
     <!--导入模版引擎-->
@@ -172,8 +178,11 @@
             <li class="item">
                 <a href="javascript:;">
                     <img data-original="<%=data[i]['image']%>" alt="图片" class="lazy">
-                    <p><%=data[i]['title']%><span class="mark f_right"><%=data[i]['mark']%></span></p>
-                    <p><span class="year f_left"><%=data[i]['year']%></span>年&nbsp;<span class="type"><%=data[i]['type']%></span></p>
+                    <div class="f_left" style="max-width: 145px">
+                        <p><%=data[i]['title']%></p>
+                        <p><span class="year f_left"><%=data[i]['year']%></span>年&nbsp;<span class="type"><%=data[i]['type']%></span></p>
+                    </div>
+                    <div class="f_right"><span class="mark"><%=data[i]['mark']%></span></div>
                 </a>
             </li>
             <%}%>
@@ -184,7 +193,7 @@
         <%for(var i=0;i<data.length;i++){%>
             <li>
                 <a href="javascript:;">
-                    <img data-original="<%=data[i]['image']%>" alt="" class="showImg lazy">
+                    <img data-original="<%=data[i]['image']%>" class="mini_img lazy">
                     <div class="title">
                         <p><%=data[i]['title']%></p>
                         <span><strong class="star"><%=data[i]['mark']%></strong> 分</span>

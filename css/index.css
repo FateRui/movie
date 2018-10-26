@@ -167,10 +167,25 @@ body{
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index:10000;
+    z-index:6666;
     width: 220px;
     height: 220px;
     transform: translate(-50%,-50%);
+}
+#float_img{
+    border:5px solid #ccc;
+    position: absolute;
+    left: -200px;
+    top: -200px;
+    display: none;
+    background:#ccc;
+    z-index: 9999999;
+}
+
+#float_img img{
+    width: 210px;
+    height: 300px;
+    display: block;
 }
 
 /*点赞图标--由于不好看，已经废弃*/

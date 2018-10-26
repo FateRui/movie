@@ -18,7 +18,6 @@ $(function () {
             callback(parent.attr("id"),targetPage.attr("id"),targetPage.index());
         });
     }
-
     /*******进行优化，使用懒加载插件********/
 
 
@@ -48,9 +47,28 @@ $(function () {
             getData(url,selector,"item-artTemplate",false);
 
             $("img.lazy").lazyload({
+                placeholder:"images/loading.gif",
                 threshold : 200,
             });
         }
+    });
+
+    //这里是用来让图片放大的方法
+    var float_img =$("#float_img");
+    $(document).on("mouseenter",".mini_img",function () {
+        //首先获取本身图片赋值给maxImg 下面的img
+        float_img.find("img").attr("src",$(this).attr("src"));
+        //接下来设置位置
+        var thisX =$(this).position().left;
+        var thisY =$(this).position().top;
+        var targetX =thisX-float_img.width()-20;
+        var targetY =thisY+$(this).height()/2-float_img.height()/2;
+        float_img.css({left:targetX+"px",top:targetY+"px"});
+
+        float_img.stop(true,true).fadeIn();
+    });
+    $(document).on("mouseleave",".mini_img",function () {
+        float_img.stop(true,true).fadeOut();
     });
 
     //封装的方法，用于往页面填充数据，为了保证灵活，已不再封装
@@ -69,6 +87,7 @@ $(function () {
                     $(selector).html(template(templateId,{data:measureData(res)}));
                 }
                 $("img.lazy").lazyload({
+                    placeholder:"images/loading.gif",
                     threshold : 200,
                 });
                 window[url]=true;
