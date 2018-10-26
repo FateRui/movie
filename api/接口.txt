@@ -9,8 +9,10 @@ http://api.douban.com/v2/movie/search?tag=犯罪
 http://api.douban.com/v2/movie/search?tag=动画
 http://api.douban.com/v2/movie/search?tag=冒险
 http://api.douban.com/v2/movie/search?tag=奇幻
+http://api.douban.com/v2/movie/search?tag=科幻
 
 http://api.douban.com/v2/movie/search?tag=电影
 http://api.douban.com/v2/movie/search?tag=电视剧
 http://api.douban.com/v2/movie/search?tag=综艺
 
+http://api.douban.com/v2/movie/top250?start=25&count=25

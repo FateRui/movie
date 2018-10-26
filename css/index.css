@@ -20,6 +20,7 @@ body{
     width: 975px;
     border: 1px solid #ccc;
     height: 674px;
+    position: relative;
 }
 
 .catagroy>.f_right{
@@ -93,7 +94,10 @@ body{
     padding: 0 5px;
     overflow: hidden;
     font-size: 14px;
+    height: 22px;
     color: #000;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .catagroy .target .item p:last-child{
     font-size: 12px;
@@ -141,7 +145,33 @@ body{
     font-size: 26px;
     color: gold;
 }
+/*右边的栏目结束*/
 
+/******页面的底部*****/
+
+.footer{
+    padding-top: 10px;
+    height: 100px;
+    line-height: 40px;
+    text-align: center;
+    background: beige;
+    margin-top: 10px;
+}
+.footer a{
+    color: #f00;
+}
+
+/******页面的底部  结束*****/
+
+.loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index:10000;
+    width: 220px;
+    height: 220px;
+    transform: translate(-50%,-50%);
+}
 
 /*点赞图标--由于不好看，已经废弃*/
 .star0{
@@ -178,5 +208,5 @@ body{
     background: url("../images/ic_rating_s.png") no-repeat 0 0;
 }
 
-/*右边的栏目结束*/
+
 

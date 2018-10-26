@@ -1,46 +1,62 @@
 $(function () {
 
-    //使用顶级对象作为代理人，防止按钮不响应事件
-    $(document).on("mouseenter",".catagroy .tabs li",function () {
-        //获取当前li的索引
-        var index =$(this).index();
-        //首先将本li的背景颜色改变，然后去掉其他li的背景颜色
-        $(this).addClass("now").siblings().removeClass("now");
-        //接下来，根据index,切换页面
-        //首先获取到所有的页面
-        //接下来在元素内部查找，以免出现BUG
-        // 首先找到根父元素
-        var parent =$(this).parent().parent().siblings(".target");
+    //封装tab 切换方法
+    function tabsSwitch(callback){
+        //使用顶级对象作为代理人，防止按钮不响应事件
+        //第一次使用，触发事件
+        callback("#####","#####",0);
+        $(document).on("mouseenter",".catagroy .tabs li",function () {
+            //首先将本li的背景颜色改变，然后去掉其他li的背景颜色
+            $(this).addClass("now").siblings().removeClass("now");
+            //接下来根据 $(this)身上的data-id 找到要显示的元素
+            var parent =$(this).parents(".catagroy").eq(0);
+            var targetPage = parent.find($(this).attr("data-id"));
 
-        var pages =parent.find("ul");
+            //根据元素进行切换
+            targetPage.show().siblings().hide();
+            //进行回调,返回插件根元素 id ,当前切换元素的显示的元素id,当前显示元素的序号
+            callback(parent.attr("id"),targetPage.attr("id"),targetPage.index());
+        });
+    }
 
-        var targetPage =pages.eq(index);
-        //自己显示，其他的隐藏
-        targetPage.show().siblings().hide();
+    /*******进行优化，使用懒加载插件********/
+
+
+    tabsSwitch(function () {
+        var typeList ={
+            "movie":"电影", "tv":"电视剧", "zy":"综艺", "action":"动作", "war":"战争",
+            "fz":"犯罪", "fun":"喜剧", "story":"剧情", "love":"爱情", "animate":"动画",
+            "risk":"冒险", "queer":"奇幻", "science":"科幻",
+            "fav_video":"综合1","fav_movie":"综合2","fav_funs":"综合3","fav_animate":"综合4"
+        };
+        //首先判断是不是第一次加载
+        if (arguments[0]=="#####"){
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=电影","#hotVideo  #movie","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=动作","#hotMovie  #action","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=喜剧","#hotFuns  #fun","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=动画","#hotAnimate  #animate","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合1","#hotVideo #fav_video","fav-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合2","#hotMovie #fav_movie","fav-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合3","#hotFuns #fav_funs","fav-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合4","#hotAnimate #fav_animate","fav-artTemplate",false);
+        }
+        else
+        {
+            var baseUrl ="http://www.alixiaoshuo.top/api/movie.php?tag=";
+            var url =baseUrl+typeList[arguments[1]];
+            var selector ="#"+arguments[0]+" #"+arguments[1];
+            getData(url,selector,"item-artTemplate",false);
+
+            $("img.lazy").lazyload({
+                threshold : 200,
+            });
+        }
     });
 
-
-    /************热门视频**************/
-    getData("http://api.douban.com/v2/movie/search?tag=电影&count=10",".hotVideo .target #movie","item-artTemplate",false);
-
-    getData("http://api.douban.com/v2/movie/search?tag=电视剧&count=10",".hotVideo .target #tv","item-artTemplate",true);
-
-    getData("http://api.douban.com/v2/movie/search?tag=综艺&count=10",".hotVideo .target #zy","item-artTemplate",true);
-
-    getData("http://api.douban.com/v2/movie/in_theaters?count=10",".hotVideo #fav_video","fav-artTemplate",false);
-    /************结束-------热门视频**************/
-
-    /************动作大片**************/
-    getData("http://api.douban.com/v2/movie/search?tag=动作&count=10",".hotMovie .target #action","item-artTemplate",false);
-
-    getData("http://api.douban.com/v2/movie/search?tag=战争&count=10",".hotMovie .target #war","item-artTemplate",true);
-
-    getData("http://api.douban.com/v2/movie/search?tag=犯罪&count=10",".hotMovie .target #fz","item-artTemplate",true);
-
-    getData("http://api.douban.com/v2/movie/in_theaters?count=10&page=10",".hotMovie #fav_movie","fav-artTemplate",false);
-    /************结束-------动作大片**************/
     //封装的方法，用于往页面填充数据，为了保证灵活，已不再封装
     function getData(url,selector,templateId,isAdd) {
+        //在这里进行阻止调用
+        if (window[url]) return;
         $.ajax({url:url,
             dataType:"jsonp",
             type:"get",
@@ -52,11 +68,14 @@ $(function () {
                 {
                     $(selector).html(template(templateId,{data:measureData(res)}));
                 }
+                $("img.lazy").lazyload({
+                    threshold : 200,
+                });
+                window[url]=true;
             }
         });
     }
 
-    //接下来，处理三页的数据
 
     //处理数据，获得需要的数据
     function measureData(data) {
@@ -74,12 +93,17 @@ $(function () {
             //获得年份
             object["year"]=subject[i]["year"];
             //获得图片
-            object["image"]=subject[i]["images"]["medium"];
+            object["image"]=measureImagePath(subject[i]["images"]["medium"]);
             //获得类型
             object["type"]=subject[i]["genres"].join(",");
 
             objectList.push(object);
         }
         return objectList;
+    }
+    function measureImagePath(url) {
+        var rootPath ="http://www.alixiaoshuo.top/public/";
+        var lastPath =url.split("/").pop();
+        return rootPath+lastPath;
     }
 });
