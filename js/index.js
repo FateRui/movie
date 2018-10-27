@@ -1,5 +1,21 @@
 $(function () {
 
+    //轮播图
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
     //封装tab 切换方法
     function tabsSwitch(callback){
         //使用顶级对象作为代理人，防止按钮不响应事件
@@ -48,7 +64,6 @@ $(function () {
 
             $("img.lazy").lazyload({
                 placeholder:"images/loading.gif",
-                threshold : 200,
             });
         }
     });
@@ -71,6 +86,24 @@ $(function () {
         float_img.stop(true,true).fadeOut();
     });
 
+
+    //这里是点击电影，显示详情的方法
+    
+    $(document).on("click",".details",function () {
+        var target =$("#float_details");
+        var that =$(this);
+        target.stop().slideDown(function () {
+            target.find(".content").attr("src","detail.html?id="+that.attr("data-id"));
+        });
+    });
+
+    $("#float_details .close").on("click",function () {
+        var parent =$(this).parent();
+        parent.stop().slideUp(function () {
+            parent.find(".content").empty();
+        });
+    });
+
     //封装的方法，用于往页面填充数据，为了保证灵活，已不再封装
     function getData(url,selector,templateId,isAdd) {
         //在这里进行阻止调用
@@ -88,7 +121,6 @@ $(function () {
                 }
                 $("img.lazy").lazyload({
                     placeholder:"images/loading.gif",
-                    threshold : 200,
                 });
                 window[url]=true;
             }
@@ -120,6 +152,7 @@ $(function () {
         }
         return objectList;
     }
+
     function measureImagePath(url) {
         var rootPath ="http://www.alixiaoshuo.top/public/";
         var lastPath =url.split("/").pop();

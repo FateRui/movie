@@ -41,32 +41,36 @@
     </style>
     <script>
         $(function () {
-            $(document).on("mouseenter",".img",function () {
-                var thisX =$(this).position().left;
-                var thisY =$(this).position().top;
-                var targetImg= $("#floatImg");
-                var targetX =thisX-targetImg.width()-20;
-                var targetY =thisY-$(this).height()/2;
-               targetImg.show();
-               targetImg.css({left:targetX+"px",top:targetY+"px"});
-            }).on("mouseleave",".img",function () {
-                var targetImg= $("#floatImg");
-                targetImg.hide();
+            // $(document).on("mouseenter",".img",function () {
+            //     var thisX =$(this).position().left;
+            //     var thisY =$(this).position().top;
+            //     var targetImg= $("#floatImg");
+            //     var targetX =thisX-targetImg.width()-20;
+            //     var targetY =thisY-$(this).height()/2;
+            //    targetImg.show();
+            //    targetImg.css({left:targetX+"px",top:targetY+"px"});
+            // }).on("mouseleave",".img",function () {
+            //     var targetImg= $("#floatImg");
+            //     targetImg.hide();
+            // });
+            $("div").load("index.html?para=sacacsc",function () {
+
             });
         });
-        function addEle() {
-            document.createElement("div");
-        }
+        // function addEle() {
+        //     document.createElement("div");
+        // }
     </script>
 </head>
 <body>
-    <div class="container">
-        <img class="img" ></img>
-        <img class="img" ></img>
-        <img class="img" ></img>
-    </div>
-    <div id="floatImg"style="display: none">
-        <div></div>
-    </div>
+    <!--<div class="container">-->
+        <!--<img class="img" ></img>-->
+        <!--<img class="img" ></img>-->
+        <!--<img class="img" ></img>-->
+    <!--</div>-->
+    <!--<div id="floatImg"style="display: none">-->
+        <!--<div></div>-->
+    <!--</div>-->
+    <div></div>
 </body>
 </html>

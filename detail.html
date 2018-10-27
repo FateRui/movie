@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="assets/nprogress/nprogress.js"></script>
+</head>
+<body>
+    <script> NProgress.start();</script>
+    <div class="container">
+
+    </div>
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+    <script type="text/artTemplate" id="content">
+        <div class="summary">
+            <img src="<%=data['images']['medium']%>" alt="">
+            <p>年份: <%=data['year']%></p>
+        <p>名称: <%=data['title']%></p>
+        <p>制片国家/地区: <%=data['countries'][0]%></p>
+        <p>类型: <%=data['genres'].join("/")%></p>
+        <p>电影链接: <a href="<%=data['alt']%>" target="_blank">豆瓣链接</a></p>
+        <span class="mark">评分:<%=data['rating']['average']%></span>
+        </div>
+        <p><%=data['summary']%></p>
+        <div class="costs clearfix">
+            <div class="item">
+            <a href="<%=data['directors'][0]['alt']%>" target="_blank">
+                <img src="<%=data['directors'][0]['avatars']['medium']%>" alt="">
+                <p>导演: <%=data['directors'][0]['name']%></p>
+            </a>
+        </div>
+        <% for(var i=0 ;i<data["casts"].length&&i<4;i++){%>
+            <div class="item">
+                <a href="<%=data['casts'][i]['alt']%>" target="_blank">
+                <img src="<%=data['casts'][i]['avatars']['medium']%>" alt="">
+                <p>演员: <%=data['casts'][i]['name']%></p>
+            </a>
+            </div>
+         <%}%>
+        </div>
+    </script>
+    <script src="js/detail.js"></script>
+    <script> NProgress.done();</script>
+</body>
+</html>

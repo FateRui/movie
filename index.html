@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="电影详情,电影消息,最新,电影详情,最新电影,2018最新, 豆瓣">
     <meta name="description" content="本站提供最新的电影详情消息,最好看的电影资源">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <title>豆瓣250</title>
     <!--加入进度条-->
     <link rel="stylesheet" href="assets/nprogress/nprogress.css">
@@ -20,7 +21,19 @@
 
     <div class="container">
         <!--轮播图-->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/banner3.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/banner4.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/banner5.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
 
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+        </div>
         <!--热门-->
         <div class="catagroy clearfix" id="hotVideo">
            <div class="clearfix f_left">
@@ -166,7 +179,12 @@
 
     <!--这个是图片放大-->
     <div id="float_img">
-        <img src="images/p2533822396.jpg">
+        <img src="">
+    </div>
+
+    <div id="float_details" style="display: none">
+        <button class="close">X</button>
+        <iframe class="content" frameborder="0"></iframe>
     </div>
     <!--导入jq插件-->
     <script src="assets/jquery/jquery.min.js"></script>
@@ -175,7 +193,7 @@
     <script type="text/artTemplate" id="item-artTemplate">
         <%if(data){%>
             <%for(var i=0;i<data.length;i++){%>
-            <li class="item">
+            <li class="item details" data-id="<%=data[i]['id']%>">
                 <a href="javascript:;">
                     <img data-original="<%=data[i]['image']%>" alt="图片" class="lazy">
                     <div class="f_left" style="max-width: 145px">
@@ -191,7 +209,7 @@
     <script type="text/artTemplate" id="fav-artTemplate">
         <%if(data){%>
         <%for(var i=0;i<data.length;i++){%>
-            <li>
+            <li class="details" data-id="<%=data[i]['id']%>">
                 <a href="javascript:;">
                     <img data-original="<%=data[i]['image']%>" class="mini_img lazy">
                     <div class="title">
