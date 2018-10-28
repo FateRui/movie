@@ -6,15 +6,76 @@
 }
 body{
     /*background: rgb(241, 242, 243);*/
+    padding-top: 60px;
 }
 
-/****轮播图****/
 
-.swiper-container {
+
+/***头部****/
+.header{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999999999999;
+}
+
+.header .nav{
+    height: 100%;
     width: 1200px;
-    height: 300px;
+    margin: auto;
+    background: #fff;
 }
-/***轮播图 结束****/
+
+.header .nav li {
+    float: left;
+}
+.header .nav .searchBar{
+    float: right;
+    position: relative;
+
+}
+
+.header .nav .searchBar form{
+    height: 100%;
+    width: 360px;
+    margin-right: 15px;
+}
+
+.header .nav form input{
+    -webkit-appearance: none;
+    width:348px;
+    height: 34px;
+    border: 1px solid #007aff;
+    margin: 12px 0;
+    line-height: 34px;
+    padding: 0 0 0 10px;
+    font-size: 16px;
+}
+
+.header .nav .searchBar>input{
+    position: absolute;
+    width: 60px;
+    height: 36px;
+    top:12px;
+    right:15px;
+    border: 1px solid #007aff;
+    background: #007aff;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+.header .nav li a{
+    display: block;
+    line-height: 60px;
+    font-size: 18px;
+    text-align: center;
+    padding: 0 15px;
+    color: #007aff;
+}
+
 
 /*分类开始*/
 .catagroy{
@@ -60,7 +121,8 @@ body{
 
 .catagroy>.f_left .tabs{
     float: left;
-    height: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .catagroy>.f_left .tabs li{
@@ -83,8 +145,19 @@ body{
     border: 1px solid #ccc;
 }
 
+.catagroy .target{
+    width: 100%;
+}
+
+.catagroy .target ul{
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .catagroy .target .item:hover{
-    box-shadow:0 3px 3px 3px rgba(0,0,0,0.3);
+    /*box-shadow:0 3px 3px 3px rgb(0,0,0);*/
 }
 .catagroy .target .item img{
     width: 100%;
@@ -106,6 +179,7 @@ body{
     color: #000;
     text-overflow:ellipsis;
     white-space: nowrap;
+   margin: 0;
 }
 .catagroy .target .item p:last-child{
     font-size: 12px;
@@ -116,6 +190,11 @@ body{
 
 
 /*右边的栏目开始*/
+
+.catagroy>.f_right ul{
+    padding: 0;
+    margin: 0;
+}
 
 .catagroy>.f_right li{
     height: 59px;
@@ -141,16 +220,30 @@ body{
     height: 50px;
     float: left;
     margin: 5px 10px;
+    display: block;
+    border: none;
 }
 
 .catagroy>.f_right li .title{
     font-size:16px;
     color: green;
     vertical-align: bottom;
+    padding: 0;
+}
+
+.catagroy>.f_right li .title p{
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    max-width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
 }
 .catagroy>.f_right li .star{
     font-style: italic;
-    font-size: 26px;
+    font-size: 24px;
     color: gold;
 }
 /*右边的栏目结束*/
@@ -178,7 +271,8 @@ body{
     z-index:6666;
     width: 220px;
     height: 220px;
-    transform: translate(-50%,-50%);
+    margin-top: -110px;
+    margin-left: -110px;
 }
 #float_img{
     border:5px solid #ccc;
@@ -199,15 +293,15 @@ body{
 /**这个是弹出的详情页**/
 #float_details{
     position: fixed;
-    width: 80%;
-    height: 90%;
-    left: 50%;
-    top: 50%;
+    width: 90%;
+    height: 80%;
+    min-width: 1082px;
+    top:10%;
+    left:5%;
     background: #fff;
-    transform: translate(-50%,-50%);
     z-index: 10000000;
     border: 1px solid #ccc;
-    box-shadow: 0 0 5px 5px rgba(33,43,45,0.4);
+    /*box-shadow: 0 0 5px 5px rgb(33,43,45);*/
 }
 
 #float_details button{
@@ -230,7 +324,9 @@ body{
 #float_details .content{
     width: 100%;
     height: 100%;
-    overflow: scroll;
+    min-width: 1082px;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
 }
 
 /*点赞图标--由于不好看，已经废弃*/

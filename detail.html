@@ -19,7 +19,7 @@
     <script src="assets/artTemplate/template-native.js"></script>
     <script type="text/artTemplate" id="content">
         <div class="summary">
-            <img src="<%=data['images']['medium']%>" alt="">
+            <a href="<%=data['alt']%>" target="_blank"><img src="<%=data['images']['medium']%>" alt="" class="lazy" onerror="this.src='images/error.gif'"></a>
             <p>年份: <%=data['year']%></p>
         <p>名称: <%=data['title']%></p>
         <p>制片国家/地区: <%=data['countries'][0]%></p>
@@ -30,15 +30,24 @@
         <p><%=data['summary']%></p>
         <div class="costs clearfix">
             <div class="item">
-            <a href="<%=data['directors'][0]['alt']%>" target="_blank">
-                <img src="<%=data['directors'][0]['avatars']['medium']%>" alt="">
+               <% if(data['directors'][0]['avatars']){%>
+                <a href="<%=data['directors'][0]['alt']%>" target="_blank">
+                    <%}else{%>
+                    <a href="javascript:;" target="_blank">
+                <%}%>
+                <%
+                    var img ="images/none.gif";
+                    if(data['directors'][0]['avatars']) img =data['directors'][0]['avatars']['medium'];
+                %>
+                <img src="<%=img%>" alt="" class="lazy" onerror="this.src='images/error.gif'">
                 <p>导演: <%=data['directors'][0]['name']%></p>
             </a>
         </div>
         <% for(var i=0 ;i<data["casts"].length&&i<4;i++){%>
+            <%if(!data['casts'][i]['avatars']||!data['casts'][i]['avatars']['medium']) continue;%>
             <div class="item">
                 <a href="<%=data['casts'][i]['alt']%>" target="_blank">
-                <img src="<%=data['casts'][i]['avatars']['medium']%>" alt="">
+                <img src="<%=data['casts'][i]['avatars']['medium']%>" alt="" class="lazy" onerror="this.src='images/error.gif'">
                 <p>演员: <%=data['casts'][i]['name']%></p>
             </a>
             </div>

@@ -1,8 +1,10 @@
+
+
 .container{
     padding: 10px;
     min-width: 1082px;
+    width: 1082px;
 }
-
 .summary{
     height: 250px;
 }
@@ -31,7 +33,7 @@
 
 /*电影详情*/
 .container>p{
-    margin: 10px 0px;
+    margin: 10px 0;
 }
 
 /*演员表*/
@@ -48,6 +50,16 @@
     font-size: 14px;
 }
 
+.costs p{
+    max-width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
+    margin: 0;
+    padding: 0;
+}
+
 .costs .item{
     width: 180px;
     height: 270px;
@@ -59,4 +71,5 @@
     width: 180px;
     height: 250px;
     display: block;
+    border: none;
 }

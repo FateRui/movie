@@ -13,30 +13,43 @@
     <link rel="stylesheet" href="assets/nprogress/nprogress.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="assets/swiper/css/swiper.min.css">
     <script src="assets/nprogress/nprogress.js"></script>
+    <link rel="stylesheet" href="assets/swiper/bannerList.css">
 </head>
 <body>
     <script>NProgress.start();</script>
-
+    <div class="header">
+        <ul class="nav">
+            <li><a href="javascript:location.reload();">首页</a></li>
+            <li><a href="#hotVideo">正在热播</a></li>
+            <li><a href="#hotMovie">电影</a></li>
+            <li><a href="#hotFuns">喜剧大片</a></li>
+            <li><a href="#hotAnimate">动漫</a></li>
+            <li class="searchBar">
+                <form>
+                    <input type="text" class="search_value">
+                </form>
+                <input type="button" class="search" value="搜索">
+            </li>
+        </ul>
+    </div>
     <div class="container">
         <!--轮播图-->
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="images/banner3.png" alt=""></div>
-                <div class="swiper-slide"><img src="images/banner4.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="images/banner5.jpg" alt=""></div>
-            </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination swiper-pagination-white"></div>
-
-            <!-- 如果需要导航按钮 -->
-            <div class="swiper-button-prev swiper-button-white"></div>
-            <div class="swiper-button-next swiper-button-white"></div>
+        <div class="banner">
+            <ul class="" style="margin: 0;padding: 0">
+                <li><a href="javascript:;"><img src="images/banner3.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner4.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner5.jpg" alt=""></a></li>
+            </ul>
+            <div class="left-btn"></div>
+            <div class="right-btn"></div>
+            <div class="img-btn-list"></div>
         </div>
+
+        <!--热门-->
         <!--热门-->
         <div class="catagroy clearfix" id="hotVideo">
-           <div class="clearfix f_left">
+            <div class="clearfix f_left">
                 <div class="loggle">
                     <a class="title">正在热播</a>
                     <span class="divider"></span>
@@ -51,13 +64,13 @@
                         <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                     <ul class="clearfix" id="tv" style="display:none">
-                        <img src="images/timg-2.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                     <ul class="clearfix" id="zy" style="display:none">
-                        <img src="images/timg-4.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                 </div>
-           </div>
+            </div>
             <div class="clearfix f_right">
                 <div class="loggle">
                     <a class="title">猜你喜欢</a>
@@ -81,13 +94,13 @@
                 </div>
                 <div class="target">
                     <ul class="clearfix" id="action">
-                        <img src="images/timg-4.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                     <ul class="clearfix" id="war" style="display:none">
-                        <img src="images/timg-4.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                     <ul class="clearfix" id="fz" style="display:none">
-                        <img src="images/timg-4.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                 </div>
             </div>
@@ -114,13 +127,13 @@
                 </div>
                 <div class="target">
                     <ul class="clearfix" id="fun">
-                        <img src="images/timg-2.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                     <ul class="clearfix" id="story" style="display:none">
-                        <img src="images/timg-2.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                     <ul class="clearfix" id="love" style="display:none">
-                        <img src="images/timg-2.gif" alt="" class="loading">
+                        <img src="images/timg.gif" alt="" class="loading">
                     </ul>
                 </div>
             </div>
@@ -170,10 +183,11 @@
                 </ul>
             </div>
         </div>
+
     </div>
     <!--页尾-->
     <div class="footer">
-        <p>本站所有资源均来自有豆瓣，如有侵权，请联系站长: <span>zhou1050253145@163.com</span></p>
+        <p>本站所有资源均来自有豆瓣，如有侵权，请联系站长: <a href="zhou1050253145@163.com">zhou1050253145@163.com</a></p>
         <p>源码已放至github,感兴趣的可访问: <a href="https://github.com/FateRui/movie">https://github.com/FateRui/movie</a></p>
     </div>
 
@@ -197,7 +211,7 @@
                 <a href="javascript:;">
                     <img data-original="<%=data[i]['image']%>" alt="图片" class="lazy">
                     <div class="f_left" style="max-width: 145px">
-                        <p><%=data[i]['title']%></p>
+                        <p ><%=data[i]['title']%></p>
                         <p><span class="year f_left"><%=data[i]['year']%></span>年&nbsp;<span class="type"><%=data[i]['type']%></span></p>
                     </div>
                     <div class="f_right"><span class="mark"><%=data[i]['mark']%></span></div>
@@ -221,9 +235,7 @@
         <%}%>
         <%}%>
     </script>
-
-    <!--导入轮播图插件-->
-    <script src="assets/swiper/js/swiper.min.js"></script>
+    <script src="assets/swiper/bannerList.js"></script>
     <!--导入懒加载图片插件-->
     <script src="assets/lazyLoad/jquery.lazyload.min.js"></script>
     <script src="js/index.js"></script>

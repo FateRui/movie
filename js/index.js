@@ -1,19 +1,31 @@
 $(function () {
 
     //轮播图
-    var mySwiper = new Swiper ('.swiper-container', {
-        direction: 'horizontal', // 垂直切换选项
-        loop: true, // 循环模式选项
+    bannerListFn(
+        $(".banner"),
+        $(".img-btn-list"),
+        $(".left-btn"),
+        $(".right-btn"),
+        4000,
+        true
+    );
 
-        // 如果需要分页器
-        pagination: {
-            el: '.swiper-pagination',
-        },
-        // 如果需要前进后退按钮
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+    var perPosY=0;
+    $(window).scroll(function () {
+        //兼容safari firefox chrome
+        var top =document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset;
+        if (top>400){
+            $(".header").hide();
+        }
+        else
+        {
+            $(".header").show();
+        }
+        perPosY =top;
+    });
+
+    $(".search").click(function () {
+        console.log($(".search_value").val());
     });
 
     //封装tab 切换方法
@@ -39,21 +51,21 @@ $(function () {
 
     tabsSwitch(function () {
         var typeList ={
-            "movie":"电影", "tv":"电视剧", "zy":"综艺", "action":"动作", "war":"战争",
-            "fz":"犯罪", "fun":"喜剧", "story":"剧情", "love":"爱情", "animate":"动画",
-            "risk":"冒险", "queer":"奇幻", "science":"科幻",
-            "fav_video":"综合1","fav_movie":"综合2","fav_funs":"综合3","fav_animate":"综合4"
+            "movie":"dianying", "tv":"dianshiju", "zy":"zongyi", "action":"dongzuo", "war":"zhanzheng",
+            "fz":"fanzui", "fun":"xiju", "story":"juqing", "love":"aiqing", "animate":"donghua",
+            "risk":"maoxian", "queer":"qihuan", "science":"kehuan",
+            "fav_video":"zonghe1","fav_movie":"zonghe2","fav_funs":"zonghe3","fav_animate":"zonghe4"
         };
         //首先判断是不是第一次加载
         if (arguments[0]=="#####"){
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=电影","#hotVideo  #movie","item-artTemplate",false);
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=动作","#hotMovie  #action","item-artTemplate",false);
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=喜剧","#hotFuns  #fun","item-artTemplate",false);
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=动画","#hotAnimate  #animate","item-artTemplate",false);
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合1","#hotVideo #fav_video","fav-artTemplate",false);
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合2","#hotMovie #fav_movie","fav-artTemplate",false);
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合3","#hotFuns #fav_funs","fav-artTemplate",false);
-            getData("http://www.alixiaoshuo.top/api/movie.php?tag=综合4","#hotAnimate #fav_animate","fav-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=dianying","#hotVideo  #movie","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=dongzuo","#hotMovie  #action","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=xiju","#hotFuns  #fun","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=donghua","#hotAnimate  #animate","item-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=zonghe1","#hotVideo #fav_video","fav-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=zonghe2","#hotMovie #fav_movie","fav-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=zonghe3","#hotFuns #fav_funs","fav-artTemplate",false);
+            getData("http://www.alixiaoshuo.top/api/movie.php?tag=zonghe4","#hotAnimate #fav_animate","fav-artTemplate",false);
         }
         else
         {
@@ -100,7 +112,7 @@ $(function () {
     $("#float_details .close").on("click",function () {
         var parent =$(this).parent();
         parent.stop().slideUp(function () {
-            parent.find(".content").empty();
+            parent.find(".content").attr("src","");
         });
     });
 
@@ -134,7 +146,7 @@ $(function () {
         if (!data["subjects"]) return {};
         var objectList=new Array();
         var subject =data["subjects"];
-        for (let i=0;i<subject.length;i++){
+        for (var i=0;i<subject.length;i++){
             var object={};
             //获得评分
             object["mark"]=subject[i]["rating"]["average"].toString().length>1?subject[i]["rating"]["average"]:subject[i]["rating"]["average"]+".0";

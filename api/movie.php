@@ -11,22 +11,23 @@
 	
 	//根据名字查找数据
 	$fileList =array(
-					"喜剧"=>"xiju.json",
-					"爱情"=>"aiqing.json",
-					"剧情"=>"juqing.json",
-					"战争"=>"zhanzheng.json",
-					"动作"=>"dongzuo.json",
-					"犯罪"=>"fanzui.json",
-					"动画"=>"donghua.json",
-					"冒险"=>"maoxian.json",
-					"奇幻"=>"qihuan.json",
-					"科幻"=>"kehuan.json",
-					"电影"=>"dianying.json",
-					"电视剧"=>"dianshiju.json",
-					"综艺"=>"zongyi.json",
-					"综合1"=>"zonghe1.json",
-					"综合2"=>"zonghe2.json",
-					"综合3"=>"zonghe2.json"
+					"xiju"=>"xiju.json",
+					"aiqing"=>"aiqing.json",
+					"juqing"=>"juqing.json",
+					"zhanzheng"=>"zhanzheng.json",
+					"dongzuo"=>"dongzuo.json",
+					"fanzui"=>"fanzui.json",
+					"donghua"=>"donghua.json",
+					"maoxian"=>"maoxian.json",
+					"qihuan"=>"qihuan.json",
+					"kehuan"=>"kehuan.json",
+					"dianying"=>"dianying.json",
+					"dianshiju"=>"dianshiju.json",
+					"zongyi"=>"zongyi.json",
+					"zonghe1"=>"zonghe1.json",
+					"zonghe2"=>"zonghe2.json",
+					"zonghe3"=>"zonghe3.json",
+					"zonghe4"=>"zonghe4.json"
 					);
 	
 	$filePath =@$fileList[$type];
