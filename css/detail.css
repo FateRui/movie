@@ -3,6 +3,7 @@
 .container{
     padding: 10px;
     min-width: 1082px;
+    max-width: 1082px;
     width: 1082px;
 }
 .summary{

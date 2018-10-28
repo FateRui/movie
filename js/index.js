@@ -76,6 +76,7 @@ $(function () {
 
             $("img.lazy").lazyload({
                 placeholder:"images/loading.gif",
+                threshold: window.screen.height
             });
         }
     });
@@ -133,6 +134,7 @@ $(function () {
                 }
                 $("img.lazy").lazyload({
                     placeholder:"images/loading.gif",
+                    threshold: window.screen.height
                 });
                 window[url]=true;
             }
